@@ -17,7 +17,7 @@ export class Book implements IBook {
   }
 
   toString(): string {
-    return `Book[${this.id}: ${this.title} (${this.author})]`
+    return `${this.title} by ${this.author}`
   }
 
 }
