@@ -1,0 +1,19 @@
+{
+  "name": "librarian",
+  "version": "1.0.0",
+  "description": "A TypeScript playground",
+  "main": "index.js",
+  "scripts": {
+    "exec" : "node ./target/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "yannisf",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.15",
+    "typescript": "^3.6.4"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.144"
+  }
+}

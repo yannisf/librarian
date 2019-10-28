@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "author": "Matei Zaharia",
+    "title": "Spark, The Definitive Guide"
+  },
+  {
+    "id": 2,
+    "author": "Vasiliki Kalavri",
+    "title": "Stream processing with Flink"
+  },
+  {
+    "id": 3,
+    "author": "Νίκος Καββαδίας",
+    "title": "Βάρδια"
+  }
+]
