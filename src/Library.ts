@@ -23,48 +23,57 @@ export class Library implements ILibrary {
   checkin(bookId: number) {
     let book: Book | undefined = this.findBook(bookId);
     if (book) {
-        if (!book.available) {
-            console.info(`Returning ${book}`);
-            book.available = true;
-            book.borrower = null;
-        } else {
-            console.warn(`${book} already available`);
-        }
+      if (!book.available) {
+        console.info(`Returning ${book}`);
+        book.available = true;
+        book.borrower = null;
+      } else {
+        console.warn(`${book} already available`);
+      }
     }
   }
 
   checkout(bookId: number, personId: number): IBook | undefined {
-    let person: Person | undefined = this.findPerson(personId);
+    const person: Person | undefined = this.findPerson(personId);
     if (!person) {
-        throw `Person[id:${personId}] not found`
+      throw `Person[id:${personId}] not found`;
     }
 
-    let book: Book | undefined = this.findBook(bookId);
+    const book: Book | undefined = this.findBook(bookId);
     if (book) {
       if (book.available) {
         console.info(`${person.name} is checking out ${book.toString()}`);
         return this.processCheckout(person, book);
       } else {
-        console.warn(`${book.toString()} is not available (checked out by ${_.get(book, 'borrower.name')})`);
+        console.warn(
+          `${book.toString()} is not available (checked out by ${_.get(
+            book,
+            "borrower.name"
+          )})`
+        );
+        return
       }
     } else {
       console.warn(`Book[id:${bookId}] not found`);
+      return
     }
   }
 
   private findBook(bookId: number): Book | undefined {
-    let book = _.find(this.books, b => b.id == bookId);
+    const book = _.find(this.books, b => b.id == bookId);
     if (!book) {
       console.warn(`Book[id:${bookId}] not found`);
+      return
     } else {
       return book;
     }
   }
 
   private findPerson(personId: number): Person | undefined {
-    let person = _.find(this.persons, p => p.id == personId);
+    const person = _.find(this.persons, p => p.id == personId);
     if (!person) {
       console.warn(`Person[id:${personId}] not found`);
+      return
     } else {
       return person;
     }

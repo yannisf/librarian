@@ -1,5 +1,3 @@
-import Person from "./Person";
-import { IBook } from "./Book";
 import { Library, ILibrary } from "./Library";
 
 let library: ILibrary = new Library();

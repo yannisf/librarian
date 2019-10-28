@@ -4,8 +4,10 @@
   "description": "A TypeScript playground",
   "main": "index.js",
   "scripts": {
-    "exec" : "node ./target/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "exec": "node ./target/index.js",
+    "test": "mocha -r ts-node/register src/**/*.spec.ts",
+    "clean": "rm -rf ./target"
   },
   "author": "yannisf",
   "license": "ISC",
@@ -14,6 +16,11 @@
     "typescript": "^3.6.4"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.144"
+    "@types/chai": "^4.2.4",
+    "@types/lodash": "^4.14.144",
+    "@types/mocha": "^5.2.7",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2",
+    "ts-node": "^8.4.1"
   }
 }
